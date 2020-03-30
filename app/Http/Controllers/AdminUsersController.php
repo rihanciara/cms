@@ -4,6 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
+use App\Http\Requests\UsersRequest;
+
+/* use App\Http\Requests\UsersEditRequest;
+
+use App\Photo;
+use App\Role;
+use App\User;
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+ */
+
 class AdminUsersController extends Controller
 {
     /**
@@ -14,10 +29,14 @@ class AdminUsersController extends Controller
     public function index()
     {
         //
-        $users= User::all();
+    $users = User::all();
 
-        return view('admin.users.index',compact('users'));
-    
+
+
+        return view('admin.users.index', compact('users'));
+
+
+
     }
 
     /**
@@ -28,7 +47,10 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
-        return view('admin.users.create');
+        $roles = Role::pluck('name','id')->all();
+
+        return view('admin.users.create', compact('roles'));
+       // return view('admin.users.create');
     }
 
     /**
@@ -37,9 +59,13 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
         //
+           // return $request->all();
+           User::create($request->all());
+           return redirect('admin/users');
+
     }
 
     /**
