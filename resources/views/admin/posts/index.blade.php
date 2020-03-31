@@ -3,6 +3,13 @@
 @section('content')
 
 <h1>Posts</h1>
+@if(Session::has('deleted_post'))
+<p class="bg-danger">{{session('deleted_post')}}</p>
+@elseif(Session::has('created_post'))
+<p class="bg-danger">{{session('created_post')}}</p>
+@else(Session::has('cupdated_post'))
+<p class="bg-danger">{{session('updated_post')}}</p>
+@endif
 
 <table class="table">
         <thead>
@@ -26,7 +33,7 @@
                 <td>{{$post->id}}</td>
                 <td><img height="100" src="{{$post->photo  ? $post->photo->file : 'http://placehold.it/400x400'}}" alt=""></td> 
              
-                <td>{{$post->user->name}}</td>
+                <td><a href="{{route('admin.posts.edit',$post->id)}}">{{$post->user->name}}</a></td>
                 <td>{{$post->category ?$post ->category->name: 'Uncategorized'}}</td>
               
                 <td>{{$post->title}}</td>
