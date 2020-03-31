@@ -9,6 +9,7 @@ use App\Photo;
 use App\Http\Requests\UsersRequest;
 use App\Http\Requests\UsersEditRequest;
 use Illuminate\Support\Facades\Session;
+
 /*
 
 
@@ -86,6 +87,7 @@ class AdminUsersController extends Controller
             }
             $input['password'] = bcrypt($request->password);
             User::create($input);
+            Session::flash('created_user','The User has been created');
             return redirect('admin/users'); 
             
               /* User::create($request->all());

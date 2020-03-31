@@ -33,6 +33,7 @@ Route::group(['middleware'=>'admin'], function(){
 
 
 
+
     Route::resource('admin/users', 'AdminUsersController',['names'=>
     [
     
@@ -46,7 +47,17 @@ Route::group(['middleware'=>'admin'], function(){
     
     ]]);
     
+    Route::resource('admin/posts','AdminPostsController',['names'=>
+    [
     
-
+    
+        'index'=>'admin.posts.index',
+        'create'=>'admin.posts.create',
+        'store'=>'admin.posts.store',
+        'edit'=>'admin.posts.edit'
+    
+    
+    
+    ]]);
 });
 
