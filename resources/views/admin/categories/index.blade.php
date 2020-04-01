@@ -5,7 +5,7 @@
 
 <div class="col-sm-6">
     
-   {!!Form::open(['method'=>'POST','action'=>'AdminCategoriesController@store'])!!}
+   {!!Form::open(['method'=>'POST','action'=>['AdminCategoriesController@store']])!!}
     <div class="form-group">
         {!!Form::label('name','Name') !!}
         {!!Form::text('name',null,['class'=>'form-control']) !!}
@@ -41,7 +41,7 @@
             @foreach ($categories as $category )
             <tr>
                 <td>{{$category->id}}</td>
-                <td>{{$category->name}}</td>
+                <td><a href="{{route('admin.categories.edit',$category->id)}}">{{$category->name}}</a></td>
                 <td>{{$category->created_at ? $category->created_at->diffForHumans() :'no date' }}</td>
                
             </tr>

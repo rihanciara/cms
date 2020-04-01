@@ -5,50 +5,30 @@
 
 <div class="col-sm-6">
     
-   {!!Form::model([$category,'method'=>'PATCH','action'=>['AdminCategoriesController@update',$category->id])!!}
-    <div class="form-group">
-        {!!Form::label('name','Name') !!}
+   {!!Form::model($category,['method'=>'PATCH','action'=>['AdminCategoriesController@update',$category->id]])!!}
+   <div class="form-group">
+         {!!Form::label('name','Name') !!}
         {!!Form::text('name',null,['class'=>'form-control']) !!}
     </div>    
     
     <div class="form-group">
-       
-        {!!Form::submit('Submit',['class'=>'btn btn-primary']) !!}
+               {!!Form::submit('Update Category',['class'=>'btn btn-primary col-sm-6']) !!}
      </div>   
      {!! Form::close() !!}
-
-
-
-
 
 </div>
 
 <div class="col-sm-6">
-
-    @if($categories)
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Created</th>
-         
-        </tr>
-        </thead>
-        <tbody>
-       
-          
-            @foreach ($categories as $category )
-            <tr>
-                <td>{{$category->id}}</td>
-                <td>{{$category->name}}</td>
-                <td>{{$category->created_at ? $category->created_at->diffForHumans() :'no date' }}</td>
-               
-            </tr>
-            @endforeach
+   
+    {!!Form::open(['method'=>'DELETE','action'=>['AdminCategoriesController@destroy',$category->id]])!!}
+     
+     <div class="form-group">
         
-        </tbody>
+         {!!Form::submit('Delete Category',['class'=>'btn btn-danger col-sm-6']) !!}
+      </div>   
+      {!! Form::close() !!}
+ 
+ 
+</div>
 
-    </table>
-
-    @endif
+@endsection
