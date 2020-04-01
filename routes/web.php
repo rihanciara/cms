@@ -22,17 +22,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware'=>'admin'], function(){
+   
+
+
     Route::get('/admin', function(){
 
         return view('admin.index');
-
-
-
-
+    
+    
+    
+    
     });
-
-
-
 
     Route::resource('admin/users', 'AdminUsersController',['names'=>
     [
@@ -46,6 +46,18 @@ Route::group(['middleware'=>'admin'], function(){
     
     
     ]]);
+
+    Route::resource('admin/categories', 'AdminCategoriesController',['names'=>[
+
+
+        'index'=>'admin.categories.index',
+        'create'=>'admin.categories.create',
+        'store'=>'admin.categories.store',
+        'edit'=>'admin.categories.edit'
+
+
+    ]]);
+
     
     Route::resource('admin/posts','AdminPostsController',['names'=>
     [
