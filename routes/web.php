@@ -84,7 +84,7 @@ Route::group(['middleware'=>'admin'], function(){
 
     ]]);
 
-    Route::resource('admin/comments', 'PostCommentsController',['names'=>[
+    Route::resource('admin/comments', 'PostCommentController',['names'=>[
 
 
         'index'=>'admin.comments.index',

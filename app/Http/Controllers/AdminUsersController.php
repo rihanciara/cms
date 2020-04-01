@@ -51,6 +51,7 @@ class AdminUsersController extends Controller
         $roles = Role::pluck('name','id')->all();
 
         return view('admin.users.create', compact('roles'));
+
        // return view('admin.users.create');
     }
 
@@ -85,7 +86,7 @@ class AdminUsersController extends Controller
               $photo = Photo::create(['file'=>$name]);
               $input['photo_id']=$photo->id;
             }
-            $input['password'] = bcrypt($request->password);
+           // $input['password'] = bcrypt($request->password);
             User::create($input);
             Session::flash('created_user','The User has been created');
             return redirect('admin/users'); 

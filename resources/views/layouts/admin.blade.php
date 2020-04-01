@@ -143,6 +143,8 @@
                             <li>
                                 <a href="{{route('admin.users.create')}}">Create User</a>
                             </li>
+                           
+
 
                         </ul>
                         <!-- /.nav-second-level -->
@@ -158,11 +160,10 @@
                             <li>
                                 <a href="{{route('admin.posts.create')}}">Create Post</a>
                             </li>
-
-                           {{--  <li>
+                             <li>
                                 <a href="{{route('admin.comments.index')}}">All Comments</a>
                             </li>
- --}}
+ -
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
