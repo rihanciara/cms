@@ -11,10 +11,20 @@
 
     <title>Blog Post - Start Bootstrap Template</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
-
-    <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+   <!-- Bootstrap Core CSS -->
+   <link href="{{asset('libs/blog-post.css')}}" rel="stylesheet">
+   <link href="{{asset('libs/bootstrap.css')}}" rel="stylesheet">
+   <link href="{{asset('libs/bootstrap.min.css')}}" rel="stylesheet">
+   <link href="{{asset('libs/font-awesome.css')}}" rel="stylesheet">
+   <link href="{{asset('libs/metisMenu.css')}}" rel="stylesheet">
+   <link href="{{asset('libs/sb-admin-2.css')}}" rel="stylesheet">
+ 
+   <link href="{{asset('js/bootstrap.js')}}" rel="stylesheet">
+   <link href="{{asset('js/jquery.js')}}" rel="stylesheet">
+   <link href="{{asset('js/metisMenu.js')}}" rel="stylesheet">
+   <link href="{{asset('js/metisMenu.js')}}" rel="stylesheet">
+   <link href="{{asset('js/sb-admin-2.js')}}" rel="stylesheet">
+   <link href="{{asset('js/scripts.js')}}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -157,7 +167,7 @@
 
 <!-- jQuery -->
 
-<script src="{{asset('js/libs.js')}}"></script>
+<script src="{{asset('js/jquery.js')}}"></script>
 
 
 @yield('scripts')

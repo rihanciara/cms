@@ -276,7 +276,7 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="{{asset('js/libs.js')}}"></script>
+<script src="{{asset('js/jquery.js')}}"></script>
 
 
 @yield('scripts')

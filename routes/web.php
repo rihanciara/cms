@@ -21,6 +21,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+Route::get('/logout', 'Auth\LoginController@logout');
+
+
+
+
 Route::group(['middleware'=>'admin'], function(){
    
 
@@ -58,7 +63,7 @@ Route::group(['middleware'=>'admin'], function(){
 
     ]]);
 
-    
+    Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
     Route::resource('admin/posts','AdminPostsController',['names'=>
     [
     

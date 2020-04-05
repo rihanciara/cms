@@ -144,12 +144,13 @@ class AdminPostsController extends Controller
     public function post($slug){
 
 
-        $post = Post::findBySlugOrFail($slug);
+    // $post = Post::findBySlugOrFail($slug);
+    $post =Post::findOrFail($slug);
 
-        $comments = $post->comments()->whereIsActive(1)->get();
+      //  $comments = $post->comments()->whereIsActive(1)->get();
 
 
-        return view('post', compact('post','comments'));
+        return view('post', compact('post'));
 
 
     }
