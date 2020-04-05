@@ -21,6 +21,7 @@
        
             <th>title</th>
             <th>body</th>
+            <th>Post</th>
             <th>Created</th>
             <th>Updated</th>
         </tr>
@@ -38,6 +39,8 @@
               
                 <td>{{$post->title}}</td>
                 <td>{{$post->body}}</td>
+                <td><a href="{{route('home.post',$post->id)}}">View Post</a></td>
+        
                 <td>{{$post->created_at->diffForHumans()}}</td>
                 <td>{{$post->updated_at->diffForHumans()}}</td>
             </tr>

@@ -89,7 +89,11 @@ class PostCommentController extends Controller
     public function update(Request $request, $id)
     {
         //
-    }
+
+
+        comment::findorfail($id)->update($request->all());
+        return redirect('/admin/comments');
+    }   
 
     /**
      * Remove the specified resource from storage.
@@ -100,5 +104,9 @@ class PostCommentController extends Controller
     public function destroy($id)
     {
         //
+
+
+        comment::findorfail($id)->delete();
+        return redirect()->back();
     }
 }

@@ -34,7 +34,33 @@
             <td>{{$comment->created_at->diffForHumans()}}</td>
             <td>{{$comment->updated_at->diffForHumans()}}</td>
             <td><a href="{{route('home.post',$comment->post->id)}}">view comment</a></td>
-     
+            <td>
+                @if($comment->is_active==1)
+                {!!Form::open(['method'=>'PATCH','action'=>['PostCommentController@update',$comment->id]])!!}
+                <div class="form-group">
+                        <input type="hidden" name="is_active" value="0">
+                    {!!Form::submit('Un Approve',['class'=>'btn btn-danger']) !!}
+                 </div>   
+                {!! Form::close() !!}
+
+                @else
+
+                {!!Form::open(['method'=>'PATCH','action'=>['PostCommentController@update',$comment->id]])!!}
+                <div class="form-group">
+                        <input type="hidden" name="is_active" value="1">
+                    {!!Form::submit('Approve',['class'=>'btn btn-success']) !!}
+                 </div>   
+                {!! Form::close() !!}
+                 @endif
+
+            </td>
+            <td>  {!!Form::open(['method'=>'DELETE','action'=>['PostCommentController@destroy',$comment->id]])!!}
+                <div class="form-group">
+       
+                    {!!Form::submit('Delete',['class'=>'btn btn-danger']) !!}
+                 </div>   
+                {!! Form::close() !!}
+            </td>
         </tr>
         @endforeach
         @endif
