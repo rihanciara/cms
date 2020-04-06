@@ -23,6 +23,7 @@
             <td>{{$comment->body}}</td>
            
             <td><a href="{{route('home.post',$comment->post->id)}}">view Post</a></td>
+            <td><a href="{{route('admin.comments.replies.show',$comment->id)}}">view Replies</a></td>
             <td>
                 @if($comment->is_active==1)
                 {!!Form::open(['method'=>'PATCH','action'=>['PostCommentController@update',$comment->id]])!!}

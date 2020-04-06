@@ -99,6 +99,10 @@ class CommentRepliesController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+
+       commentReply::findorfail($id)->update($request->all());
+       return redirect('/admin/comments');
     }
 
     /**
@@ -110,5 +114,7 @@ class CommentRepliesController extends Controller
     public function destroy($id)
     {
         //
+        commentReply::findorfail($id)->delete();
+        return redirect()->back();
     }
 }
