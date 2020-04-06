@@ -97,8 +97,7 @@ class PostCommentController extends Controller
     {
         //
 
-
-        comment::findorfail($id)->update($request->all());
+       comment::findorfail($id)->update($request->all());
         return redirect('/admin/comments');
     }   
 

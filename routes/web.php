@@ -25,6 +25,16 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 
 
+Route::group(['middleware'=>'auth'], function(){
+
+
+
+    Route::post('comment/reply', 'CommentRepliesController@createReply');
+    Route::resource('comment/replies','CommentRepliesController'); 
+
+
+});
+
 
 Route::group(['middleware'=>'admin'], function(){
    
@@ -111,6 +121,9 @@ Route::group(['middleware'=>'admin'], function(){
 
 
     ]]);
+
+
+
 
 
 

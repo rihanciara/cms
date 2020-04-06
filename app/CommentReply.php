@@ -10,14 +10,16 @@ class CommentReply extends Model
     protected $fillable = [
 
         'comment_id',
-        'author'.
+        'author',
+        'photo',
         'email',
         'body',
         'is_active'
 
+     
     ];
 
     public function comment(){
-        return $this->hasMany('App\Comments');
+        return $this->hasMany('App\Comment');
     }
 }
