@@ -63,12 +63,10 @@
 
             <!-- /.dropdown -->
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> {{Auth::user()->name}} <i class="fa fa-caret-down">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="{{ url('/logout') }}">
+                    <i class="fa fa-user fa-fw"></i>Logout {{Auth::user()->name}} <i class="fa fa-caret-down">
 
-
-
-                    </i>
+               </i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>

@@ -21,7 +21,8 @@
        
             <th>title</th>
             <th>body</th>
-            <th>Post</th>
+            <th>Posts</th>
+            <th>Comments</th>
             <th>Created</th>
             <th>Updated</th>
         </tr>
@@ -40,7 +41,8 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->body}}</td>
                 <td><a href="{{route('home.post',$post->id)}}">View Post</a></td>
-        
+                <td><a href="{{route('admin.comments.show',$post->id)}}">View Comments</a></td> 
+                   
                 <td>{{$post->created_at->diffForHumans()}}</td>
                 <td>{{$post->updated_at->diffForHumans()}}</td>
             </tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Comment;
+Use App\Post;
 
 
 class PostCommentController extends Controller
@@ -30,6 +31,7 @@ class PostCommentController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
@@ -66,6 +68,11 @@ class PostCommentController extends Controller
     public function show($id)
     {
         //
+        $post =Post::findorFail($id);
+        $comments =$post->comments;
+        
+        return view('admin.comments.show',compact('comments'));
+
     }
 
     /**

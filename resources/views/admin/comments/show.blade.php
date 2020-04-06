@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Comments </h1>
-@if(count($comments) > 0)
+@if(count((array)$comments) > 0)
 <table class="table">
     <thead>
     <tr>
@@ -10,21 +10,18 @@
         <th>Author</th>
         <th>Email</th>
         <th>body</th>
-        <th>Created</th>
-        <th>Updated</th>
+      
     </tr>
     </thead>
     <tbody>
    
-        @if($comments)
         @foreach ($comments as $comment )
         <tr>
             <td>{{$comment->id}}</td>
             <td>{{$comment->author}}</td>
             <td>{{$comment->email}}</td>
             <td>{{$comment->body}}</td>
-            <td>{{$comment->created_at->diffForHumans()}}</td>
-            <td>{{$comment->updated_at->diffForHumans()}}</td>
+           
             <td><a href="{{route('home.post',$comment->post->id)}}">view Post</a></td>
             <td>
                 @if($comment->is_active==1)
@@ -55,9 +52,14 @@
             </td>
         </tr>
         @endforeach
-        @endif
+     
    
     </tbody>
 </table>
+@else
+
+
+<h1 class="text-center">No Comments</h1>
+
 @endif
 @endsection
